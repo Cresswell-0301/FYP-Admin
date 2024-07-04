@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+input, textarea, select{
+  @apply border border-gray-200 rounded-sm px-1 w-full py-2 px-3;
+  @apply mb-2 text-black;
+}
+
+input:focus textarea:focus select:focus{
+  @apply border-blue-900;
+}
+
+h1 {
+  @apply text-gray-900 mb-4 text-xl;
+}
+
+label{
+  @apply text-gray-600 text-sm;
+}
+
+.btn-primary {
+  @apply bg-gray-700 text-white px-4 py-1 rounded-md;
+}
+
+table.product {
+  @apply w-[100%] bg-slate-200 rounded-xl shadow-lg text-black;
+  border-collapse: separate; /* Remove the lines between columns */
+  border-spacing: 0 8px; /* Add margin to each column */
+}
+
+table.product thead tr td,
+table.product thead tr th {
+  @apply text-lg font-extrabold text-black uppercase py-2 text-start pl-1;
+}
+
+table.product tbody tr {
+  @apply rounded-lg; /* Apply rounded corners to each table row */
+}
+
+table.product tr td {
+  @apply px-1 py-2; /* Add border to each cell */
+}
+
+table.product a {
+  @apply px-4 rounded-lg inline-flex mx-1 items-center gap-1 text-sm py-1;
+}
+
+
+
+table.order{
+  @apply w-full bg-slate-200 rounded-xl shadow-lg text-black ;
+}
+table.order thead tr td,
+table.order thead tr th
+{
+  @apply text-lg font-extrabold text-black px-3 uppercase py-3 text-start pl-1;
+}
+table.order tr td{
+  @apply px-1 py-2 border-b-2 border-gray-400 text-start;
+}
+
+table.order tr td a{
+  @apply px-4 rounded-lg text-center inline-flex items-center text-base py-1;
+}
+
+table.basic{
+  @apply w-full bg-slate-200 rounded-xl shadow-lg text-black ;
+}
+table.basic thead tr td,
+table.basic thead tr th
+{
+  @apply text-lg font-extrabold text-black uppercase border-b border-gray-200 py-2 text-start pl-1;
+}
+table.basic tr td{
+  @apply px-1 py-2;
+}
+
+.btn-red , .btn-default, .btn-green {
+  @apply px-4 py-1 rounded-xl;
+}
+
+.btn-red {
+  @apply bg-red-700 text-white;
+}
+
+.btn-default {
+  @apply bg-blue-400 text-white;
+}
+
+.btn-green {
+  @apply bg-green-500 text-white;
+}
+
+img{
+  max-height: 100%;
+}
+

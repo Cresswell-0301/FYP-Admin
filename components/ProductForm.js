@@ -52,10 +52,10 @@ export default function ProductForm({
     try {
       if (_id) {
         await axios.put("/api/products", { ...data, _id });
-        toast.success("Saved !")
+        toast.success("Saved !");
       } else {
         await axios.post("/api/products", data);
-        toast.success("Created a new product !")
+        toast.success("Created a new product !");
       }
       setGoToProducts(true);
     } catch (error) {
@@ -135,8 +135,9 @@ export default function ProductForm({
           Uncategorized
         </option>
         {categories.length > 0 &&
-          categories.map((c) => (
+          categories.map((c, index) => (
             <option
+              key={index}
               className={c.parent ? "bg-white" : "bg-slate-400"}
               value={c._id}
             >

@@ -26,14 +26,6 @@ export const authOptions = {
   },
 
   secret: process.env.NEXTAUTH_SECRET,
-
-  pages: {
-    signIn: "/auth/signin",
-    signOut: "/auth/signout",
-    error: "/auth/error", // Error code passed in query string as ?error=
-    verifyRequest: "/auth/verify-request", // (used for check email message)
-    newUser: null, // If set, new users will be directed here on first sign in
-  },
 };
 
 export default NextAuth(authOptions);

@@ -24,14 +24,14 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4">
+    <form onSubmit={handleSubmit} className="mt-4 ml-auto mr-auto w-[300px]">
       {error && <p className="text-red-500">{error}</p>}
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
-        className="p-2 rounded border"
+        className="p-2 rounded border outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
         required
       />
       <br />
@@ -40,13 +40,13 @@ export default function LoginForm() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
-        className="p-2 mt-2 rounded border"
+        className="p-2 mt-2 rounded border outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
         required
       />
       <br />
       <button
         type="submit"
-        className="mt-2 bg-gray-300 p-2 px-4 rounded-lg text-black text-[20px]"
+        className="mt-2 bg-gray-300 p-2 px-4 rounded-lg text-black text-lg hover:bg-gray-400 focus:outline-none focus:bg-gray-400"
       >
         Login
       </button>

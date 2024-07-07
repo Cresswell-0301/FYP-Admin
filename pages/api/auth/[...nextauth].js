@@ -56,24 +56,36 @@ export const authOptions = {
     }),
   ],
 
+  session: {
+    strategy: "jwt",
+  },
+
   adapter: MongoDBAdapter(clientPromise),
 
   callbacks: {
     async session({ session, token, user }) {
-      console.log("session");
+      console.log("session here");
       if (user?.email && adminEmails.includes(user.email)) {
-        session.user.email = user.email;
-        session.user.name = user.name;
-        session.user.id = user.id;
+        console.log("session true here");
+        session.user = {
+          email: user.email,
+          name: user.name,
+          id: user.id,
+        };
         return session;
       } else {
-        return false;
+        if (token) {
+          return {
+            ...session,
+            id: token.id,
+          };
+        } else {
+          return false;
+        }
       }
     },
 
-    jwt: async (token, user) => {
-      console.log("jwt");
-
+    async jwt(token, user) {
       if (user) {
         token.id = user.id;
         token.email = user.email;

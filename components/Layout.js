@@ -7,7 +7,7 @@ import LoginForm from "./LoginForm";
 export default function Layout({ children }) {
   const [showNav, setShowNav] = useState(false);
   const { data: session } = useSession();
-  console.log(session);
+
   if (!session) {
     return (
       <div className={"bg-gray-500 w-screen h-screen flex items-center"}>

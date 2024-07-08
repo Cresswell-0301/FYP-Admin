@@ -16,10 +16,8 @@ export default function LoginForm() {
 
     if (result.ok) {
       setError("");
-      console.log("Login success:", result);
     } else {
       setError("Invalid email or password");
-      console.error("Login error:", result.error);
     }
   };
 

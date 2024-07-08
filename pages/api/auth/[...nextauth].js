@@ -62,9 +62,7 @@ export const authOptions = {
 
   callbacks: {
     async session({ session, token, user }) {
-      console.log("session here");
       if (user?.email && adminEmails.includes(user.email)) {
-        console.log("session true here");
         session.user = {
           email: user.email,
           name: user.name,

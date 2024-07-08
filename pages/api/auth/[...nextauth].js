@@ -6,8 +6,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { Admin } from "@/models/Admin";
 import bcrypt from "bcryptjs";
 
-const adminEmails = process.env.ADMIN_EMAILS.split(", ");
-
 export const authOptions = {
   providers: [
     GoogleProvider({

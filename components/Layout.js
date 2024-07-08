@@ -20,12 +20,6 @@ export default function Layout({ children }) {
             />
             <h1 className="font-bold text-[50px] mt-[35px]">ADMIN</h1>
           </div>
-          <button
-            onClick={() => signIn("google")}
-            className="bg-gray-300 p-2 px-4 rounded-lg text-black text-[20px]"
-          >
-            Login with Google
-          </button>
 
           <LoginForm />
         </div>

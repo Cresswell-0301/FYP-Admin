@@ -36,17 +36,8 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "GET") {
-      const { email } = req.query;
-
-      if (!email) return res.status(400).json({ error: "Email is required" });
-
-      const admin = await Admin.findOne({ email });
-      if (!admin) {
-        console.log(`Admin not found for email: ${email}`);
-        return res.status(404).json({ error: "Admin not found" });
-      }
-
-      return res.status(200).json(admin);
+      const admins = await Admin.find();
+      return res.status(200).json(admins);
     }
 
     if (req.method === "PUT") {
@@ -73,9 +64,19 @@ export default async function handler(req, res) {
         console.error("Error updating password:", error);
         return res.status(500).json({ error: "Internal Server Error" });
       }
-    } else {
-      return res.status(405).json({ error: "Method Not Allowed" });
     }
+
+    if (req.method === "DELETE") {
+      const { email } = req.query;
+      if (!email) return res.status(400).json({ error: "Email is required" });
+
+      const admin = await Admin.findOneAndDelete({ email });
+      if (!admin) return res.status(404).json({ error: "Admin not found" });
+
+      return res.status(200).json({ message: "Admin deleted successfully" });
+    }
+
+    return res.status(405).json({ error: "Method Not Allowed" });
   } catch (error) {
     console.error("Error in API route:", error);
     return res.status(500).json({ error: "Internal Server Error" });

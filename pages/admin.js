@@ -55,7 +55,7 @@ function Admin({ swal }) {
               </tr>
             </thead>
             <tbody>
-              {admins.map((admin) => (
+              {admins.slice(1).map((admin) => (
                 <tr key={admin._id}>
                   <td className="text-black">{admin.username}</td>
                   <td className="text-black">{admin.email}</td>

@@ -23,7 +23,6 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mt-4 ml-auto mr-auto w-[300px]">
-      {error && <p className="text-red-500">{error}</p>}
       <input
         type="email"
         value={email}
@@ -41,6 +40,8 @@ export default function LoginForm() {
         className="p-2 mt-2 rounded border outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
         required
       />
+      <br />
+      {error && <p className="#">{error}</p>}
       <br />
       <button
         type="submit"
